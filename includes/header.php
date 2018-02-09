@@ -1,8 +1,3 @@
-<?php 
-    include 'constants.php';
-    include 'classes.php';
-    include 'data.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
