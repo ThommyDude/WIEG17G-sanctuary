@@ -1,23 +1,31 @@
-<?php include 'includes/header.php' ?>
-
-<?php
-    $choosenAttractions = array();
-
-    $postedNames = array_keys($_POST);
+<?php 
+    include 'includes/main.php';
     
-    for ($i = 0; $i < count($postedNames); $i++) {
-        $name = $postedNames[$i];
-        $value = $_POST[$name];
-
-        for($k = 0; $k < $value; $k++) {
-            array_push($choosenAttractions, new $name());
+    if (isset($_SESSION['created']) == false) {
+        header('Location: http://localhost:8080/settings.php');
+        die("Forbidden to visit this site.");
+    }
+    
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        if (isset($_POST['nuke'])) {
+            session_unset();
+            session_destroy();
+            header('Location: http://localhost:8080/index.php');
+            die("Forbidden to visit this site.");
         }
     }
-        
-    foreach($choosenAttractions as $attraction) {
+    
+    include 'includes/header.php';
+?>
+<h2>The Animal Sanctuary</h2>
+<form method="POST" action="results.php">
+    <input type="hidden" name="nuke" value="do it" />
+    <button type="submit">Nuke the sanctuary</button>
+</form>
+<?php
+    foreach($_SESSION['attractions'] as $attraction) {
         $attraction -> echoImage();
     }
-
 ?>
 
 <?php include 'includes/footer.php' ?>
