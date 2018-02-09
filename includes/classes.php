@@ -59,6 +59,24 @@ class Tiger extends Animal {
         return "raaaawgh";
     }
 }
+class Lion extends Animal {
+    public function getAttractionImage() {
+        return "lion.jpg";
+    }
+
+    public function getAttractionName() {
+        switch (LANGUAGE) {
+            case "sv":
+                return "Fint lejon";
+            case "en":
+                return "A nice lion";
+        }
+    }
+
+    public function makeSound() {
+        return "woooooooooooaaaaah";
+    }
+}
 
 class Ape extends Animal {
     public function getAttractionImage() {
@@ -109,6 +127,20 @@ class Coconut extends Attraction {
                 return "Kokosnöt";
             case "en":
                 return "Coconut";
+        }
+    }
+}
+class Rose extends Attraction {
+    public function getAttractionImage() {
+        return "rose.jpg";
+    }
+
+    public function getAttractionName() {
+        switch (LANGUAGE) {
+            case "sv":
+                return "Ros";
+            case "en":
+                return "Rose";
         }
     }
 }

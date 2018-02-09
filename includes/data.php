@@ -3,5 +3,7 @@
         new Tiger(),
         new Ape(),
         new Giraf(),
-        new Coconut()
+        new Coconut(),
+        new Lion(),
+        new Rose()
 );
