@@ -4,8 +4,12 @@ abstract class Attraction {
     public abstract function getAttractionName();
     public abstract function getAttractionImage();
     
+    public function getClassName() {
+        return get_class($this);
+    }
+
     public function echoInputElement() {
-        echo $this->getAttractionName().": <input type='number' name='".$this->getAttractionName()."'>";
+        echo $this->getAttractionName().": <input type='number' name='".$this->getClassName()."'>";
     }
 
     public function onClickCode() {
@@ -45,9 +49,9 @@ class Tiger extends Animal {
     public function getAttractionName() {
         switch (LANGUAGE) {
             case "sv":
-                return "Tiger";
+                return "Sibirisk tiger";
             case "en":
-                return "Tiger";
+                return "Sibirian tiger";
         }
     }
 
@@ -56,7 +60,7 @@ class Tiger extends Animal {
     }
 }
 
-class Monkey extends Animal {
+class Ape extends Animal {
     public function getAttractionImage() {
         return "monkey.jpg";
     }

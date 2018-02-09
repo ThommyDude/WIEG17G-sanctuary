@@ -1,7 +1,7 @@
 <?php
     $listOfEachAttraction = array(
         new Tiger(),
-        new Monkey(),
+        new Ape(),
         new Giraf(),
         new Coconut()
 );

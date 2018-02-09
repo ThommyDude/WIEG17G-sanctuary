@@ -3,22 +3,20 @@
 <?php
     $choosenAttractions = array();
 
-for ($i = 0; $i < $_POST['Tiger']; $i++) {
-    array_push($choosenAttractions, new Tiger());
-}
-for ($i = 0; $i < $_POST['Giraff']; $i++) {
-    array_push($choosenAttractions, new Giraf());
-}
-for ($i = 0; $i < $_POST['Apa']; $i++) {
-    array_push($choosenAttractions, new Monkey());
-}
-for ($i = 0; $i < $_POST['Kokosnöt']; $i++) {
-    array_push($choosenAttractions, new Coconut());
-}
+    $postedNames = array_keys($_POST);
+    
+    for ($i = 0; $i < count($postedNames); $i++) {
+        $name = $postedNames[$i];
+        $value = $_POST[$name];
 
-foreach($choosenAttractions as $attraction) {
-    $attraction -> echoImage();
-}
+        for($k = 0; $k < $value; $k++) {
+            array_push($choosenAttractions, new $name());
+        }
+    }
+        
+    foreach($choosenAttractions as $attraction) {
+        $attraction -> echoImage();
+    }
 
 ?>
 
