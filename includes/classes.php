@@ -19,9 +19,21 @@ abstract class Attraction {
 
 abstract class Animal extends Attraction {
     public abstract function makeSound();
+    public $individualName; // $this->individualName
+
+    public function __construct() {
+        $index = rand(0, count(ALL_NAMES)-1);
+        $this->individualName = ALL_NAMES[$index];
+    }
 
     public function onClickCode() {
-        return "alert(\"".$this->makeSound()."\")";
+        $text = 'alert("';
+        $text .= $this->individualName;
+        $text .= ": ";
+        $text .= $this->makeSound();
+        $text .= '");';
+
+        return $text;
 }
 }
 
