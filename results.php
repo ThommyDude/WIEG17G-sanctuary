@@ -2,16 +2,14 @@
     include 'includes/main.php';
     
     if (isset($_SESSION['created']) == false) {
-        header('Location: http://localhost:8080/settings.php');
-        die("Forbidden to visit this site.");
+        redirect('settings.php');
     }
     
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (isset($_POST['nuke'])) {
             session_unset();
             session_destroy();
-            header('Location: http://localhost:8080/index.php');
-            die("Forbidden to visit this site.");
+            redirect('index.php');
         }
     }
     

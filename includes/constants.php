@@ -1,5 +1,15 @@
 <?php
     
+    # Checks if we are running on the webserver on on localhost
+    if ($_SERVER['SERVER_NAME'] == "viktorlyresten.wieg17.se") {
+        define("URL_PREFIX", 'http://viktorlyresten.wieg17.se/sanctuary/');
+        ini_set('display_errors', 0);
+    }
+    else {
+        define("URL_PREFIX", 'http://localhost:8080/');
+        ini_set('display_errors', 1);
+    }
+
     # Sets the language of the site automaticly
     $requestLanguage = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
 

@@ -22,8 +22,7 @@
         }
         $_SESSION['attractions'] = $choosenAttractions;
 
-        header('Location: http://localhost:8080/results.php');
-        die("Forbidden to visit this site.");
+        redirect('results.php');
     }
     
     include 'includes/header.php';
